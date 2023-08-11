@@ -1,5 +1,13 @@
+import Header from "./components/Header";
+import UsersList from "./components/UsersList";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <Header />
+      <UsersList />
+    </>
+  );
 }
 
 export default App;
