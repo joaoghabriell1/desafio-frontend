@@ -12,7 +12,6 @@ git clone https://github.com/joaoghabriell1/desafio-frontend.git
 
 ```
 npm install
-
 ```
 
 3. Start Project
