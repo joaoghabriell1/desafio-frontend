@@ -1,4 +1,5 @@
 import { useUserModalContext } from "../../store/modal-context";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { Li, Button } from "./styles";
 
 interface Props {
@@ -9,12 +10,13 @@ interface Props {
 }
 
 const UserItem = ({ id, name, email, city }: Props) => {
+  const isMobile = useMediaQuery("(max-width:768px)");
   const { toggleUserModal, onSetUserId } = useUserModalContext();
 
   return (
     <Li>
       <div>{name}</div>
-      <div>{email}</div>
+      {!isMobile && <div>{email}</div>}
       <div>{city}</div>
       <Button
         onClick={() => {
@@ -22,7 +24,7 @@ const UserItem = ({ id, name, email, city }: Props) => {
           onSetUserId(id);
         }}
       >
-        Ver mais
+        {isMobile ? "+" : "Ver mais"}
       </Button>
     </Li>
   );

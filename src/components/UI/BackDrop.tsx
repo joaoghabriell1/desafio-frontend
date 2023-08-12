@@ -13,6 +13,6 @@ export default BackDrop;
 const BackDropContainer = styled.div`
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #ffffff87, #00000047);
+  background: #ffffff87;
   z-index: 1;
 `;

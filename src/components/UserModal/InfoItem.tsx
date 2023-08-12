@@ -19,14 +19,21 @@ const InfoItem = ({ label, info }: Props) => {
 const Label = styled.div`
   font-size: 1.5rem;
   text-transform: capitalize;
+  @media (max-width: 375px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const Info = styled.div`
   font-size: 1.4rem;
+  @media (max-width: 375px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const Container = styled.div`
   display: flex;
+  align-items: center;
   gap: 1rem;
 `;
 export default InfoItem;
