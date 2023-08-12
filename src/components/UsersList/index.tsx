@@ -1,8 +1,15 @@
-import { Ul } from "./styles";
+import { sortListAlphabetically } from "../../utils/sortListAlphabetically ";
+import { useFilterContext } from "../../store/filter-context";
 import { useUsers } from "../../hooks/useUsers";
+import { User } from "../../types/user";
+import { Ul, Wrapper } from "./styles";
+import UserItem from "../UserItem";
+import Header from "../Header";
 
 const UsersList = () => {
-  const { data, isLoading, isError, error } = useUsers();
+  const { data, isLoading, error } = useUsers();
+  const { filter } = useFilterContext();
+  let filteredList: User[] = [];
 
   if (isLoading) {
     return <p>...carregando</p>;
@@ -12,13 +19,33 @@ const UsersList = () => {
     return <p>Não foi possível carregar os usuários.</p>;
   }
 
+  filteredList = data!.data!.filter((user) => {
+    return (
+      user.name.toLowerCase().includes(filter.searchQuery) ||
+      user.address.city.toLowerCase().includes(filter.searchQuery)
+    );
+  });
+
+  const sortedList = sortListAlphabetically(filteredList, filter);
+
   return (
     <>
-      <Ul>
-        {data?.data?.map((user, index) => {
-          return <li key={index}>{user.name}</li>;
-        })}
-      </Ul>
+      <Wrapper>
+        <Header />
+        <Ul>
+          {sortedList.map(({ id, name, email, address: { city } }, index) => {
+            return (
+              <UserItem
+                id={id}
+                name={name}
+                email={email}
+                city={city}
+                key={index}
+              />
+            );
+          })}
+        </Ul>
+      </Wrapper>
     </>
   );
 };

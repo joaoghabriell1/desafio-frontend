@@ -1,10 +1,10 @@
-import Header from "./components/Header";
 import UsersList from "./components/UsersList";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   return (
     <>
-      <Header />
+      <SearchBar />
       <UsersList />
     </>
   );
