@@ -1,4 +1,5 @@
-import { Li } from "./styles";
+import { useUserModalContext } from "../../store/modal-context";
+import { Li, Button } from "./styles";
 
 interface Props {
   id: number;
@@ -8,12 +9,21 @@ interface Props {
 }
 
 const UserItem = ({ id, name, email, city }: Props) => {
+  const { toggleUserModal, onSetUserId } = useUserModalContext();
+
   return (
     <Li>
       <div>{name}</div>
       <div>{email}</div>
       <div>{city}</div>
-      <button>see more</button>
+      <Button
+        onClick={() => {
+          toggleUserModal();
+          onSetUserId(id);
+        }}
+      >
+        Ver mais
+      </Button>
     </Li>
   );
 };

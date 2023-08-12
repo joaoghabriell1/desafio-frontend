@@ -2,11 +2,15 @@ import styled from "styled-components";
 
 export const HeaderTag = styled.header`
   display: flex;
+  padding-inline: 1rem;
+  padding-right: 9rem;
+  gap: 1px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin-bottom: 1rem;
   justify-content: space-between;
   div {
-    flex-basis: 45%;
-  }
-  div:nth-child(2) {
-    margin-left: -1.5rem;
+    padding-block: 1rem;
+    flex-basis: 100%;
   }
 `;

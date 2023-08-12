@@ -19,7 +19,7 @@ const UsersList = () => {
     return <p>Não foi possível carregar os usuários.</p>;
   }
 
-  filteredList = data!.data!.filter((user) => {
+  filteredList = data!.data?.filter((user) => {
     return (
       user.name.toLowerCase().includes(filter.searchQuery) ||
       user.address.city.toLowerCase().includes(filter.searchQuery)
@@ -30,8 +30,10 @@ const UsersList = () => {
 
   return (
     <>
-      <Wrapper>
-        <Header />
+      <Header />
+      {filteredList.length === 0 ? (
+        <p>Nenhum usuário foi encontrado.</p>
+      ) : (
         <Ul>
           {sortedList.map(({ id, name, email, address: { city } }, index) => {
             return (
@@ -45,7 +47,7 @@ const UsersList = () => {
             );
           })}
         </Ul>
-      </Wrapper>
+      )}
     </>
   );
 };

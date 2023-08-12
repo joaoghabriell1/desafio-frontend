@@ -1,4 +1,5 @@
 import { useFilterContext } from "../../store/filter-context";
+import { SearchBarInput } from "./styles";
 import { useState } from "react";
 
 const SearchBar = () => {
@@ -14,7 +15,7 @@ const SearchBar = () => {
   return (
     <>
       <div>
-        <input
+        <SearchBarInput
           placeholder="Procure pelo nome ou cidade..."
           value={query}
           onChange={onChangeHandler}

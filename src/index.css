@@ -30,6 +30,10 @@ a {
   text-decoration: inherit;
 }
 
+button {
+  font-family: inherit;
+}
+
 button:hover {
   cursor: pointer;
 }

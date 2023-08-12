@@ -5,6 +5,6 @@ export const getAllUsers = () => {
   return ApiInstance.get<User[]>("/users");
 };
 
-export const getUserData = (id: string) => {
-  return ApiInstance.get(`/users/${id}`);
+export const getUserData = (id: number) => {
+  return ApiInstance.get<User>(`/users/${id}`);
 };
