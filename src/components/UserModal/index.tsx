@@ -73,19 +73,25 @@ const UserModal = ({ id }: Props) => {
     <>
       <BackDropPortal />
       <UserModalPortal>
-        <div>UserInfo:</div>
-        {UserDataArray.map((item) => {
-          return <InfoItem label={item[0]} info={item[1]} />;
-        })}
+        <Heading>UserInfo:</Heading>
+        <Ul>
+          {UserDataArray.map((item, index) => {
+            return <InfoItem key={index} label={item[0]} info={item[1]} />;
+          })}
+        </Ul>
 
-        <div>Company Info:</div>
-        {companyDataArray.map((item) => {
-          return <InfoItem label={item[0]} info={item[1]} />;
-        })}
-        <div>Location Info:</div>
-        {addressDataArray.map((item) => {
-          return <InfoItem label={item[0]} info={item[1]} />;
-        })}
+        <Heading>Company Info:</Heading>
+        <Ul>
+          {companyDataArray.map((item, index) => {
+            return <InfoItem key={index} label={item[0]} info={item[1]} />;
+          })}
+        </Ul>
+        <Ul>
+          <Heading>Location Info:</Heading>
+          {addressDataArray.map((item, index) => {
+            return <InfoItem key={index} label={item[0]} info={item[1]} />;
+          })}
+        </Ul>
       </UserModalPortal>
     </>
   );
@@ -102,6 +108,15 @@ const Wrapper = styled.div`
   overflow-wrap: break-word;
   border-radius: 1rem;
   padding: 1rem;
+`;
+const Ul = styled.ul`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+`;
+const Heading = styled.h4`
+  font-weight: 500;
+  margin-bottom: 0.7rem;
 `;
 
 export default UserModal;

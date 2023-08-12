@@ -17,12 +17,12 @@ const InfoItem = ({ label, info }: Props) => {
 };
 
 const Label = styled.div`
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   text-transform: capitalize;
 `;
 
 const Info = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 `;
 
 const Container = styled.div`
