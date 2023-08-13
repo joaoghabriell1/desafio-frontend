@@ -2,9 +2,9 @@ import { sortListAlphabetically } from "../../utils/sortListAlphabetically ";
 import { useFilterContext } from "../../store/filter-context";
 import { useUsers } from "../../hooks/useUsers";
 import { User } from "../../types/user";
-import { Ul, Wrapper } from "./styles";
 import UserItem from "../UserItem";
 import Header from "../Header";
+import { Ul } from "./styles";
 
 const UsersList = () => {
   const { data, isLoading, error } = useUsers();

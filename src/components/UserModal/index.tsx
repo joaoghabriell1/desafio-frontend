@@ -79,7 +79,6 @@ const UserModal = ({ id }: Props) => {
             return <InfoItem key={index} label={item[0]} info={item[1]} />;
           })}
         </Ul>
-
         <Heading>Company Info:</Heading>
         <Ul>
           {companyDataArray.map((item, index) => {
